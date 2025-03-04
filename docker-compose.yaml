@@ -1,0 +1,25 @@
+services:
+  php:
+    build: .
+    image: php-app #php:8.4-fpm
+    container_name: php
+    ports:
+      - 9000:9000
+    #volumes:
+    # - '.:/var/www/html'
+    #command: php -S 0.0.0.0:9000 -t /var/www/html/public
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8
+    container_name: mysql
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_ALLOWED_EMPTY_PASSWORD: ${DB_USER_PASSWORD}
+    # command: -- init-file createUsersTable.sql
+    volumes:
+      - ./db-data:/var/lib/mysql

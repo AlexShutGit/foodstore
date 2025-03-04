@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodstore</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <ul class="nav">
+        <li class="nav-item">
+            <a class="nav-link" href="/login">Login</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/register">Register</a>
+        </li>
+    </ul>
+    <div class="container">
+        {% block body %}{% endblock %}
+    </div>
+</body>
+</html>
+
+
+{% block scripts %}
+    <script src="index.js"></script>
+{% endblock %}
